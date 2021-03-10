@@ -33,6 +33,10 @@ We **WILL** change this and add intermediaries in the future.
 
 The API is defined via OpenAPI, defined [here](openapi.yaml).
 
+## Development
+
+See [DEVELOPMENT.md](DEVELOPMENT.md) for info on how to run and debug `fulcio`.
+
 ## Transparency
 
 Fulcio will publish issued certificates to a unique CT-log.
