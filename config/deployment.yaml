@@ -17,25 +17,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: fulcio-dev
-  name: fulcio-server
+  name: legacy-fulcio-server
   labels:
-    app: fulcio-server
+    app: legacy-fulcio-server
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: fulcio-server
+      app: legacy-fulcio-server
   template:
     metadata:
       labels:
-        app: fulcio-server
+        app: legacy-fulcio-server
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/path: /metrics
         prometheus.io/port: "2112"
     spec:
       containers:
-      - name: fulcio-server
+      - name: legacy-fulcio-server
         image: ko://github.com/sigstore/fulcio
         ports:
         - containerPort: 5555
@@ -79,10 +79,10 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: fulcio-dev
-  name: fulcio-server
+  name: legacy-fulcio-server
 spec:
   selector:
-    app: fulcio-server
+    app: legacy-fulcio-server
   type: LoadBalancer
   ports:
     - protocol: TCP
